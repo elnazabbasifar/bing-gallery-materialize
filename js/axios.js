@@ -2,18 +2,19 @@
 function getBingImageUrl(path) {
 
     //make Get Request
-    axios.get(path, {
-        headers: {'Content-Type': 'application/json'}
+    axios({ 
+        method: 'get', 
+        url: path, 
+        headers: {'Content-Type' : 'application/json'} 
 
     })
     .then((response) => { 
-        console.log(response.data);
+        
         addImagetoGrid(response.data); //located in scrpt.js
-    }, 
-    (error) => { 
+    })
+    .catch((error) => {
         console.log(error); 
-    }
-    ); 
+    }); 
 
 }
 var url = "http://127.0.0.1:5000/bing/7";
